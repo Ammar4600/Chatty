@@ -16,7 +16,7 @@ const port = process.env.PORT
 
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://chattyfrontend-lac.vercel.app",
     credentials: true, // Allows cookies to be sent
 }));
 
