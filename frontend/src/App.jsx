@@ -32,7 +32,8 @@ function App() {
 
   
   return (
-    <div data-theme={theme || "light"}`}   >
+<div data-theme={theme || "light"} >
+
       <Navbar />
       <Routes>
         <Route path='/' element={authUser ? <Homepage /> : <Navigate to="/signup" />} />
