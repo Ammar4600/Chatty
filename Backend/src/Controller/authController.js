@@ -18,13 +18,13 @@ const signupController = async (req , res)=>{
     try {
 
         const {user , token } = await createUser({fullname, email, password})
-        res.cookie("token", token, {
+   res.cookie("token", token, {
     httpOnly: true,
     secure: true,
     sameSite: "None",
-    path: "/",
-    domain: ".koyeb.app"  // ✅ Ensures the cookie works across subdomains
+    path: "/"
 });
+
 
         res.json({ user , token })
 
@@ -52,13 +52,13 @@ const loginController = async (req , res)=>{
         if(!isMatch) return res.status(400).json({ error: "Invalid Credentials" });
 
         const token = await user.generateAuthToken();
-       res.cookie("token", token, {
+res.cookie("token", token, {
     httpOnly: true,
     secure: true,
     sameSite: "None",
-    path: "/",
-    domain: ".koyeb.app"  // ✅ Ensures the cookie works across subdomains
+    path: "/"
 });
+
 
         res.json({user ,token})
         
